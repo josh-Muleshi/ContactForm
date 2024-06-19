@@ -1,8 +1,8 @@
 <?php
 
-$pageTitle = "Home Page";
+$pageTitle = "Delete";
 $pageDescription = "My {$pageTitle} description";
 
 ?>
 
-<h1>liste de contact</h1>
+<h1>Delete</h1>

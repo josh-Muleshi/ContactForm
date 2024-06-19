@@ -1,8 +1,8 @@
 <?php
 
-$pageTitle = "Home Page";
+$pageTitle = "Add Page";
 $pageDescription = "My {$pageTitle} description";
 
 ?>
 
-<h1>liste de contact</h1>
+<h1>Ajoutez un Contact</h1>
