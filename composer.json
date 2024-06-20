@@ -1,7 +1,9 @@
 {
     "autoload": {
         "psr-4": {
-            "App\\Class\\": "class/"
+            "App\\Class\\": "class/",
+            "App\\Class\\Entity\\": "class/entity/",
+            "App\\Class\\htmlClasses\\": "class/htmlClasses/"
         }
     },
     "authors": [

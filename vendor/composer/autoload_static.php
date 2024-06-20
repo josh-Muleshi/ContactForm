@@ -19,6 +19,8 @@ class ComposerStaticInit14b259b952ff223e46f158e45513084a
         ),
         'A' => 
         array (
+            'App\\Class\\htmlClasses\\' => 22,
+            'App\\Class\\Entity\\' => 17,
             'App\\Class\\' => 10,
         ),
     );
@@ -31,6 +33,14 @@ class ComposerStaticInit14b259b952ff223e46f158e45513084a
         'Symfony\\Component\\VarDumper\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
+        'App\\Class\\htmlClasses\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/class/htmlClasses',
+        ),
+        'App\\Class\\Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/class/entity',
         ),
         'App\\Class\\' => 
         array (

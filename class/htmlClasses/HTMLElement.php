@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Class;
+namespace App\Class\htmlClasses;
 
 abstract class HTMLElement
 {

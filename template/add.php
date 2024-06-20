@@ -3,15 +3,18 @@
 $pageTitle = "Add Page";
 $pageDescription = "My {$pageTitle} description";
 
-use App\Class\{
+use App\Class\htmlClasses\{
     Button,
     Checkbox,
-    Cookie,
     Form,
     Input,
     Radio,
     Select,
     Textarea,
+};
+
+use App\Class\{
+    Cookie,
     Session
 };
 

@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Class;
-use App\Class\HTMLElement;
+namespace App\Class\htmlClasses;
+use App\Class\htmlClasses\HTMLElement;
 
 class Checkbox extends HTMLElement 
 {
