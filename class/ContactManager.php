@@ -5,11 +5,11 @@ use App\Class\Entity\Contact;
 
 class ContactManager {
 
-    public function getAllContacts() {
+    public function getAllContacts(): array {
         return FileHandler::getContacts();
     }
 
-    public function getContactById(string $id) {
+    public function getContactById(string $id): Contact|null {
         return FileHandler::getContactById($id);
     }
 
@@ -26,5 +26,4 @@ class ContactManager {
     public function deleteContact(string $id) {
         FileHandler::deleteContact($id);
     }
-
 }

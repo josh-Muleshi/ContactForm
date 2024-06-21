@@ -19,8 +19,34 @@ use App\Class\ContactManager;
 
 $contactManager = new ContactManager();
 
+// Créer un nouveau contact
+$contactData = [
+    'name' => 'John Doe',
+    'email' => 'john.doe@example.com',
+    'phone' => '1234567890',
+    'description' => 'A new contact'
+];
+$contactManager->createContact($contactData);
+
+// Obtenir tous les contacts
+$contacts = $contactManager->getAllContacts();
+
+// Mettre à jour un contact
+$contactToUpdate = [
+    'id' => 'existing-contact-id',
+    'name' => 'Jane Doe',
+    'email' => 'jane.doe@example.com',
+    'phone' => '0987654321',
+    'description' => 'Updated contact'
+];
+$contactManager->updateContact('existing-contact-id', $contactToUpdate);
+
+// Supprimer un contact
+$contactManager->deleteContact('existing-contact-id');
+
 Session::start();
 
+$truc = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     Session::set('name', $_POST['name']);
     Session::set('email', $_POST['email']);
@@ -35,11 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'phone' => Session::get('phone', ''),
         'description' => Session::get('description', '')
     ];
-    $contactManager->createContact($contactData);
+    printf('well');
+    
+    var_dump($contactManager->createContact($contactData));
+    $truc = true;
 
-    header('Location: home.php');
+    header('Location: home');
     exit;
 }
+
+if ($truc) printf('well');
 
 $name = Session::get('name', '');
 $email = Session::get('email', '');
@@ -51,7 +82,8 @@ $username = Cookie::get('username', 'M/Mme');
 $form = new Form('', 'POST');
 $form->addElement(new Input('text', 'name', $name, ['placeholder' => 'Nom']));
 $form->addElement(new Input('email', 'email', $email, ['placeholder' => 'Email']));
-$form->addElement(new Textarea('comments', $comments, ['placeholder' => 'Commentaires']));
+$form->addElement(new Input('phone', 'phone', $phone, ['placeholder'=> 'Telephone']));
+$form->addElement(new Textarea('description', $description, ['placeholder' => 'Description']));
 
 $form->addElement(new Button('submit', 'Soumettre'));
 
