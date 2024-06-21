@@ -1,29 +1,36 @@
 <?php
 namespace App\Class;
+
 use App\Class\FileHandler;
 use App\Class\Entity\Contact;
 
 class ContactManager {
 
-    public function getAllContacts(): array {
+    /**
+     * @throws \Exception
+     */
+    public static function getAllContacts(): array {
         return FileHandler::getContacts();
     }
 
-    public function getContactById(string $id): Contact|null {
+    public static function getContactById(string $id): ?Contact {
         return FileHandler::getContactById($id);
     }
 
-    public function createContact(array $data) {
+    public function createContact(array $data): void
+    {
         $contact = Contact::fromArray($data);
         FileHandler::createContact($contact);
     }
 
-    public function updateContact(string $id, array $data) {
+    public static function updateContact(string $id, array $data): void
+    {
         $contact = Contact::fromArray($data);
         FileHandler::updateContact($id, $contact);
     }
 
-    public function deleteContact(string $id) {
+    public static function deleteContact(string $id): void
+    {
         FileHandler::deleteContact($id);
     }
 }

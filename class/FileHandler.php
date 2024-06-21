@@ -1,27 +1,34 @@
 <?php
 namespace App\Class;
+
+use \Exception;
 use App\Class\Entity\Contact;
 
 class FileHandler {
-    private static $filePath = __DIR__ . '/../data/contacts.json';  
+    private static string $filePath = __DIR__ . '/../data/contacts.json';
 
-    public static function getContacts(): array {
+    public static function getContacts(): array
+    {
         if (!file_exists(self::$filePath)) {
-            echo "File not found: " . self::$filePath . PHP_EOL;
             return [];
         }
         $json = file_get_contents(self::$filePath);
         $data = json_decode($json, true);
+        if (empty($data)) {
+            self::saveContacts([]);
+        }
         if (json_last_error() !== JSON_ERROR_NONE) {
-            echo "JSON decode error: " . json_last_error_msg() . PHP_EOL;
-            return [];
+            throw new Exception("Erreur au décodage du fichier : " . json_last_error_msg());
         }
         return array_map(function($item) {
             return Contact::fromArray($item);
         }, $data);
     }
 
-    public static function getContactById(string $id): Contact|null {
+    /**
+     * @throws Exception
+     */
+    public static function getContactById(string $id): ?Contact {
         $contacts = self::getContacts();
         foreach ($contacts as $contact) {
             if ($contact->id === $id) {
@@ -31,13 +38,15 @@ class FileHandler {
         return null;
     }
 
-    public static function createContact(Contact $contact) {
+    public static function createContact(Contact $contact): void
+    {
         $contacts = self::getContacts();
         $contacts[] = $contact;
         self::saveContacts($contacts);
     }
 
-    public static function updateContact(string $id, Contact $contact) {
+    public static function updateContact(string $id, Contact $contact): void
+    {
         $contacts = self::getContacts();
         foreach ($contacts as &$existingContact) {
             if ($existingContact->id === $id) {
@@ -48,7 +57,8 @@ class FileHandler {
         self::saveContacts($contacts);
     }
 
-    public static function deleteContact(string $id) {
+    public static function deleteContact(string $id): void
+    {
         $contacts = self::getContacts();
         $contacts = array_filter($contacts, function($contact) use ($id) {
             return $contact->id !== $id;
@@ -56,20 +66,15 @@ class FileHandler {
         self::saveContacts($contacts);
     }
 
-    private static function saveContacts(array $contacts): bool {
+    private static function saveContacts(array $contacts): void
+    {
         $data = array_map(function($contact) {
             return $contact->toArray();
         }, $contacts);
         $json = json_encode($data, JSON_PRETTY_PRINT);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            echo "JSON encode error: " . json_last_error_msg() . PHP_EOL;
-            return false;
+            throw new Exception("Erreur à l'encodage du fichier : " . json_last_error_msg());
         }
-        $result = file_put_contents(self::$filePath, $json);
-        if ($result === false) {
-            echo "Failed to write to file: " . self::$filePath . PHP_EOL;
-            return false;
-        }
-        return true;
+        file_put_contents(self::$filePath, $json);
     }
 }

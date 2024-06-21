@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/class" isTestSource="false" packagePrefix="App\Class\" />
+      <sourceFolder url="file://$MODULE_DIR$/class/entity" isTestSource="false" packagePrefix="App\Class\Entity\" />
+      <sourceFolder url="file://$MODULE_DIR$/class/htmlClasses" isTestSource="false" packagePrefix="App\Class\htmlClasses\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/altorouter/altorouter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

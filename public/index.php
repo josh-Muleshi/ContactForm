@@ -17,5 +17,7 @@ if (is_array($match)) {
     require "../template/{$match['target']}.php";
     $pageContent = ob_get_contents();
 } else {
+    var_dump($_POST);
     echo "404";
 }
+
