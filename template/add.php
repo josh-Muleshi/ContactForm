@@ -10,7 +10,7 @@ use App\Class\htmlClasses\{
     Textarea,
 };
 
-use App\Class\{ContactManager};
+use App\Class\ContactManager;
 
 $form = new Form('/add', 'post');
 $form->addElement(new Input('text', 'name', '', ['placeholder' => 'Nom']));

@@ -30,4 +30,23 @@ class Contact {
             'description' => $this->description,
         ];
     }
+    public function getId(): string {
+        return $this->id;
+    }
+
+    public function getName(): string {
+        return $this->name;
+    }
+
+    public function getEmail(): string {
+        return $this->email;
+    }
+
+    public function getPhone(): string {
+        return $this->phone;
+    }
+
+    public function getDescription(): string {
+        return $this->description;
+    }
 }
