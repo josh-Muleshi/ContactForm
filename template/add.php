@@ -22,8 +22,6 @@ $form->addElement(new Button('submit', 'Soumettre'));
 
 $contactManager = new ContactManager();
 
-
-
 if (!empty($_POST)) {
     $name = isset($_POST["name"]) ? $_POST["name"] : null; 
     $email = isset($_POST["email"]) ? $_POST["email"] : null; 
@@ -43,6 +41,10 @@ if (!empty($_POST)) {
 
 ?>
 
-<h1>Ajoutez un Contact</h1>
-<h2>Bienvenue, <?php echo htmlspecialchars($name); ?>!</h2>
-<?php echo $form->render(); ?>
+<main class="container" style="padding-top: 100px">
+    <div class="bg-light p-5 rounded">
+        <h1>Ajoutez un Contact</h1>
+        <h2>Bienvenue, <?php echo htmlspecialchars($name); ?>!</h2>
+        <?php echo $form->render(); ?>
+    </div>
+</main>
