@@ -4,7 +4,7 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Textarea extends HTMLElement 
 {
-    public function __construct($name, $content = '', $attributes = []) 
+    public function __construct(string $name, string $content = '', array $attributes = []) 
     {
         parent::__construct('textarea', array_merge($attributes, [
             'name' => $name

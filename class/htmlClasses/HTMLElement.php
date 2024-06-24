@@ -7,7 +7,7 @@ abstract class HTMLElement
     public function __construct(
         protected string $tag, 
         protected array $attributes = [], 
-        protected ?String $content
+        protected ?String $content = null,
     ) {}
 
     protected function getAttributes(): string 

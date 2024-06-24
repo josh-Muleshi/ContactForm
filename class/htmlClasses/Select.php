@@ -4,9 +4,9 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Select extends HTMLElement 
 {
-    private $options = [];
+    private array $options = [];
 
-    public function __construct($name, $options = [], $attributes = []) 
+    public function __construct(string $name, array $options = [], array $attributes = []) 
     {
         parent::__construct('select', array_merge($attributes, [
             'name' => $name

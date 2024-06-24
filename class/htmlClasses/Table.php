@@ -4,14 +4,14 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Table extends HTMLElement 
 {
-    private $rows = [];
+    private array $rows = [];
 
-    public function __construct($attributes = []) 
+    public function __construct(array $attributes = []) 
     {
         parent::__construct('table', $attributes, null);
     }
 
-    public function addRow($row) 
+    public function addRow(array $row): void 
     {
         $this->rows[] = $row;
     }

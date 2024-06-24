@@ -2,7 +2,7 @@
 
 namespace App\Class;
 class Cookie {
-    public static function set(mixed $key, mixed $value, mixed $expiry) 
+    public static function set(string $key, string $value, mixed $expiry): void
     {
         setcookie($key, $value, time() + $expiry, "/");
     }

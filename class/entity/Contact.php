@@ -11,7 +11,7 @@ class Contact {
         private string $description
     ) {}
     
-    public static function fromArray(array $data) {
+    public static function fromArray(array $data): ?Contact {
         return new self(
             $data['id'] ?? uniqid(),
             $data['name'] ?? '',
@@ -21,7 +21,7 @@ class Contact {
         );
     }
 
-    public function toArray() {
+    public function toArray(): ?array {
         return [
             'id' => $this->id,
             'name' => $this->name,

@@ -3,7 +3,7 @@
 namespace App\Class;
 class FileUpload 
 {
-    public static function save($key, $destination) 
+    public static function save(mixed $key, string $destination): bool
     {
         $file = $_FILES[$key];
         if ($file['error'] === UPLOAD_ERR_OK) {

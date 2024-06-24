@@ -5,7 +5,7 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Checkbox extends HTMLElement 
 {
-    public function __construct(private string $name, private string $value = '', private bool $checked = false, array $attributes = []) 
+    public function __construct(string $name, string $value = '', bool $checked = false, array $attributes = []) 
     {
         parent::__construct('input', array_merge($attributes, [
             'type' => 'checkbox',

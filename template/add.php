@@ -44,7 +44,7 @@ if (!empty($_POST)) {
 <main class="container" style="padding-top: 100px">
     <div class="bg-light p-5 rounded">
         <h1>Ajoutez un Contact</h1>
-        <h2>Bienvenue, <?php echo htmlspecialchars($name); ?>!</h2>
+        <h2>Bienvenue, <?php echo isset($name) ? $name : 'M/Mm'; ?>!</h2>
         <?php echo $form->render(); ?>
     </div>
 </main>

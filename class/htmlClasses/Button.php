@@ -4,7 +4,7 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Button extends HTMLElement 
 {
-    public function __construct(private string $type, string $content, array $attributes = []) 
+    public function __construct(string $type, string $content, array $attributes = []) 
     {
         parent::__construct('button', array_merge($attributes, [
             'type' => $type

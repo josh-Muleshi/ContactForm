@@ -4,7 +4,7 @@ use App\Class\htmlClasses\HTMLElement;
 
 class Radio extends HTMLElement 
 {
-    public function __construct($name, $value = '', $checked = false, $attributes = []) 
+    public function __construct(string $name, string $value = '', bool $checked = false, array $attributes = []) 
     {
         parent::__construct('input', array_merge($attributes, [
             'type' => 'radio',

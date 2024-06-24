@@ -6,7 +6,7 @@ class Form extends HTMLElement
 {
     private array $elements = [];
 
-    public function __construct(private string $action, private string $method = 'POST', array $attributes = []) 
+    public function __construct(string $action, string $method = 'POST', array $attributes = []) 
     {
         parent::__construct('form', array_merge($attributes, [
             'action' => $action,
@@ -15,7 +15,7 @@ class Form extends HTMLElement
         ]), null);
     }
 
-    public function addElement(object $element) 
+    public function addElement(object $element): void
     {
         $this->elements[] = $element;
     }

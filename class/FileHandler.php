@@ -12,8 +12,8 @@ class FileHandler {
         if (!file_exists(self::$filePath)) {
             return [];
         }
-        $json = file_get_contents(self::$filePath);
-        $data = json_decode($json, true);
+        $json = (string) file_get_contents(self::$filePath);
+        $data = (array) json_decode($json, true);
         if (empty($data)) {
             self::saveContacts([]);
         }
@@ -21,7 +21,7 @@ class FileHandler {
             throw new Exception("Erreur au décodage du fichier : " . json_last_error_msg());
         }
         return array_map(function($item) {
-            return Contact::fromArray($item);
+            return Contact::fromArray((array) $item);
         }, $data);
     }
 
@@ -38,14 +38,14 @@ class FileHandler {
         return null;
     }
 
-    public static function createContact(Contact $contact): void
+    public static function createContact(?Contact $contact): void
     {
         $contacts = self::getContacts();
         $contacts[] = $contact;
         self::saveContacts($contacts);
     }
 
-    public static function updateContact(string $id, Contact $contact): void
+    public static function updateContact(string $id, ?Contact $contact): void
     {
         $contacts = self::getContacts();
         foreach ($contacts as &$existingContact) {
