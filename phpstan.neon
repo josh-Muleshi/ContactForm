@@ -4,7 +4,6 @@ parameters :
         - class
         - public
         - template
-        - config
     
     ignoreErrors:
         - identifier: missingType.iterableValue
